@@ -1,0 +1,20 @@
+ul{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+li{
+    float: left;
+    list-style: none;
+    padding: 10px;
+}
+
+#content_wrapper {
+    width: 400px;
+    height: 300px;
+    background:lightgray;
+    margin: 0px;
+    padding: 6px;
+    overflow: hidden;
+}

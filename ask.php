@@ -1,0 +1,123 @@
+<?php
+$file="./head.php";
+if (file_exists($file)) { include($file); }
+//set all the variables
+$formulier=true;
+$err = $nameErr = $fnameErr = $emailErr = $sectorErr = $infoErr = '';
+$name = $fname = $email = $info = $sector = '';
+$sqlErr = '';
+$content='';
+$status='Not Finished';
+if($_SERVER['REQUEST_METHOD']=='POST') 
+{
+$formulier = false;
+if (!$conn) 
+{
+//if problem with connection
+$content .= '<p>Could not connect with our database<br>
+Try again later</p>';
+$formulier = false;
+} 
+else
+{
+$formulier = false;
+function test_input($data) 
+{
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+}
+//check all the posted data
+if(empty($_POST['name'])) 
+{
+$nameErr = 'required'; 
+}
+else 
+{ 
+$name = test_input($_POST['name']); 
+}
+if(empty($_POST['fname'])) 
+{
+$fnameErr = 'required';
+}
+else 
+{
+$fname = test_input($_POST['fname']); 
+}
+if(empty($_POST['email'])) 
+{
+$emailErr = 'required';
+}
+else 
+{
+$email = test_input($_POST['email']);
+}
+if(empty($_POST['info'])) 
+{
+$infoErr = 'required';
+}
+else 
+{
+$info = test_input($_POST['info']);
+}
+$sector = stripslashes($_POST['sector']); 
+$sector = htmlentities($sector); 
+//check if not empty
+$err=$nameErr.$fnameErr.$emailErr.$infoErr.$sqlErr;
+if ($err=='') 
+{  
+$formulier=false;
+try 
+{
+//try to insert
+$sql="INSERT INTO help (name, familyName, email, sector, info, date, status) VALUES ('$name','$fname','$email','$sector','$info',NOW(), '$status')";
+$res = $conn->query($sql);
+$res->execute(array($name, $fname, $email, $sector, $info, $status)); 
+//message for the visitor
+$formulier=false;
+$content.='Dear '.$name.', thanks for letting us know about <br>
+your problem we are trying to fix it as soon as possible';
+}
+catch (Exception $e) 
+{
+//problem with database connection
+$sqlErr.='<p>Could not connect with our database<br>
+Try again later</p>'; 
+$content.= $sqlErr; 		
+} 
+} 
+} 
+} 
+else
+{
+} 
+//show the form
+$content.='
+<form method="post" id="form" action="" onsubmit="return checkformm(this)">
+<h1 id="ask-title">Drop us a note we will answer as soon as possible</h1>
+<h2>Name</h2>
+<input type="text" id="name" name="name" required>
+<h2>Family name</h2>
+<input type="text" id="fname" name="fname" required>
+<h2>E-mail</h2>
+<input type="text" id="email" name="email" required>
+<h2>Field</h2>
+<select id="sector" name="sector">
+<option value="Trips">Trips</option>
+<option value="Insurance">Option</option>
+<option value="Managment">Managment</option>
+<option value="Other">Other</option>
+</select>
+<h2>Write us about your issue</h2>
+<textarea  cols="30" rows="10" id="info" name="info" ></textarea>
+<br>
+<input type="submit" value="Send" id="ask-btn">
+</form>';
+//show the whole page
+echo '<div class="ask-box">';
+echo $content;
+echo '</div>';
+$file="./foot.php";
+if (file_exists($file)) { include($file); }
+?>

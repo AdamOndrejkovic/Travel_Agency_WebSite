@@ -1,0 +1,2961 @@
+/*
+
+1.Admin-Login
+2.Admin-Menu
+3.Tripsoverview
+4.Trips-pricing
+5.Trips-rating
+6.Clients
+7.Blog
+8.Forum
+9.Newsletter
+10.Support
+---------
+11.Show-trip
+12.Show-blog
+13.Show-forum
+14.Show-support
+15.Show-pricing
+16.Show-client
+---------
+17.Add-trip
+18.Plan-trip
+19.Edit-trip
+20.Delete-trip
+21.Delete-plan
+22.Update-plan
+23.Set-plan-status
+24.Add-trip-info
+25.Update-trip-info
+26.Edit-client
+27.Delete-client
+28.Edit-rating
+29.Add-blog
+30.Edit-blog
+31.Delete-blog
+32.Delete-blog-comment
+33.Delete-forum
+34.Delete-forum-comment
+35.Delete-newsletter
+36.Delete-support
+37.Change-support
+
+-------
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+}
+
+/* 
+
+
+1.Admin-Login 
+
+
+*/
+
+#login-con {
+    width: 100%;
+    height: 800px;
+    position: absolute;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.login-box {
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 350px;
+    text-align: center;
+}
+
+.login-box h1 {
+    width: 100%;
+    color: #6c6cf8;
+    height: 50px;
+    line-height: 50px;
+}
+
+.login-box h2 {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.login-box label {
+    display: block;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.log-input {
+    background: black;
+    border: none;
+    border-radius: 20px;
+    margin: 0 14px;
+    width: 200px;
+    background: none;
+    color: bisque;
+    font-size: 15px;
+    outline: none;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.log-foot {
+    position: absolute;
+    width: 100%;
+    height: 85px;
+    bottom: 10px;
+    background: #0c002b;
+}
+
+.log-btn {
+    position: absolute;
+    top: 10px;
+    right: 25%;
+    bottom: 10px;
+    left: 25%;
+    align-content: center;
+    color: #1670f0;
+    padding: 20px 30px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#log {
+    position: absolute;
+    background: #0c002b;
+    color: #1670f0;
+    text-transform: uppercase;
+    top: 10px;
+    right: 25%;
+    left: 25%;
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+
+}
+
+.log-btn span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #0c002b, #1779ff);
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.log-btn span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0c002b, #1779ff);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.log-btn span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, #0c002b, #1779ff);
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.log-btn span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, #0c002b, #1779ff);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* 
+
+
+2.Admin-Menu 
+
+
+*/
+
+#menu-box {
+    width: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: lightgray;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#menu {
+    padding: 10px;
+}
+
+#menu h1 {
+    font-size: 26px;
+    padding: 10px;
+}
+
+#menu h1 span {
+    margin-left: 50%;
+}
+
+#menu ul {
+    text-align: center;
+}
+
+#menu ul li {
+    padding: 5px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#menu ul li a:hover {
+    color: black;
+}
+
+
+#iframe-box {
+    float: right;
+    height: 100vh;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 85%;
+}
+
+#iframe-window {
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+/*
+
+
+3.Tripsoverview
+
+
+*/
+
+#trip-overview-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#trip-overview-box h2 {
+    font-size: 26px;
+    padding: 5px;
+    margin-bottom: 5px
+}
+
+#trip-overview-box #add {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-overview-box #add:hover {
+    border: 2px dotted black;
+}
+
+#trip-overview-box table {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#trip-overview-box th {
+    height: 50px;
+    font-size: 20px
+}
+
+#trip-overview-box td {
+    height: 40px;
+    font-size: 17px;
+}
+
+#trip-overview-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#trip-overview-box table a {
+    text-decoration: none;
+    color: black;
+}
+
+#trip-overview-box table a:hover {
+    color: goldenrod;
+}
+
+
+/*
+
+
+4.Trips-pricing
+
+
+*/
+
+#trip-pricing-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#trip-pricing-box h2 {
+    font-size: 26px;
+    padding: 5px;
+    margin-bottom: 5px
+}
+
+#trip-pricing-box table {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#trip-pricing-box th {
+    height: 50px;
+    font-size: 20px
+}
+
+#trip-pricing-box td {
+    height: 40px;
+    font-size: 17px;
+}
+
+#trip-pricing-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#trip-pricing-box table a {
+    text-decoration: none;
+    color: black;
+}
+
+#trip-pricing-box table a:hover {
+    color: goldenrod;
+}
+
+
+/*
+
+
+5.Trips-rating
+
+
+*/
+
+#trips-top-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    text-align: center;
+}
+
+#trips-top-box h2 {
+    font-size: 26px;
+    padding: 15px;
+}
+
+#trips-top-box table {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#trips-top-box th {
+    height: 50px;
+    font-size: 20px;
+}
+
+#trips-top-box td {
+    height: 50px;
+    font-size: 17px;
+}
+
+#trips-top-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#trips-top-box tr:nth-child(odd) {
+    color: burlywood;
+}
+
+
+#trips-top-box table a {
+    color: black;
+    text-decoration: none;
+}
+
+#trips-top-box table tr:nth-child(odd) a {
+    color: burlywood;
+}
+
+#trips-top-box table a:hover {
+    color: #67bf8d;
+}
+
+/*
+
+
+6.Clients
+
+
+*/
+
+#trip-client-overview-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#trip-client-overview-box h2 {
+    font-size: 26px;
+    padding: 5px;
+    margin-bottom: 5px
+}
+
+#trip-client-overview-box #add {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-client-overview-box #add:hover {
+    border: 2px dotted black;
+}
+
+#trip-client-overview-box table {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#trip-client-overview-box th {
+    height: 50px;
+    font-size: 20px
+}
+
+#trip-client-overview-box td {
+    height: 40px;
+    font-size: 17px;
+}
+
+#trip-client-overview-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#trip-client-overview-box table a {
+    text-decoration: none;
+    color: black;
+}
+
+#trip-client-overview-box table a:hover {
+    color: goldenrod;
+}
+
+
+/*
+
+
+7.Blog
+
+
+*/
+
+
+#blog-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    text-align: center;
+    position: relative;
+}
+
+#add-blog-btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#add-blog-btn:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#blog-box h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+
+#blog-box table {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#blog-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#blog-box table td {
+    display: flex;
+    height: 100px;
+}
+
+#blog-box table img {
+    height: 100%;
+    width: 15%;
+    padding: 5px;
+}
+
+#blog-box table #info-box {
+    width: 85%;
+    position: relative;
+    padding: 5px;
+}
+
+#blog-box table #info-box h3 {
+    font-size: 20px;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+}
+
+#blog-box table #info-box p {
+    font-size: 17px;
+    text-align: left;
+}
+
+#blog-box table #info-box span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 10px;
+}
+
+#blog-box table #info-box a {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+}
+
+#blog-box table #info-box a:hover {
+    color: red;
+}
+
+/*
+
+
+8.Forum
+
+
+*/
+
+#forum-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#forum-box h2 {
+    font-size: 26px;
+    padding: 5px;
+}
+
+#forum-box table {
+    width: 100%;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+#forum-box th {
+    height: 50px;
+    font-size: 21px;
+    padding: 3px 3px 0 3px;
+}
+
+#forum-box td {
+    height: 40px;
+    font-size: 18px;
+    padding: 3px 3px 0 3px;
+}
+
+#forum-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#forum-box tr:nth-child(odd) {
+    color: burlywood;
+}
+
+#forum-box table a:hover {
+    color: #67bf8d;
+}
+
+
+#forum-box table a {
+    color: black;
+    text-decoration: none;
+}
+
+#forum-box table tr:nth-child(odd) a {
+    color: burlywood;
+}
+
+#forum-box td:first-of-type {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#forum-box td:last-of-type {
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+
+
+/*
+
+
+9.Newsletter
+
+
+*/
+
+
+#news-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#news-box h2 {
+    font-size: 26px;
+    padding: 15px;
+}
+
+#news-box table {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#news-box th {
+    height: 50px;
+    font-size: 20px;
+}
+
+#news-box td {
+    height: 50px;
+    font-size: 17px;
+}
+
+#news-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#news-box tr:nth-child(odd) {
+    color: burlywood;
+}
+
+#news-box td:first-of-type {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#news-box td:last-of-type {
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+
+#news-box table a {
+    color: black;
+    text-decoration: none;
+}
+
+#news-box table tr:nth-child(odd) a {
+    color: burlywood;
+}
+
+#news-box table a:hover {
+    color: #25a1e3;
+}
+
+
+
+
+/*
+
+
+10.Support
+
+
+*/
+
+#support-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    text-align: center;
+}
+
+#support-box h2 {
+    font-size: 26px;
+    padding: 15px;
+}
+
+#support-box table {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#support-box th {
+    height: 50px;
+    font-size: 20px;
+}
+
+#support-box td {
+    height: 50px;
+    font-size: 17px;
+}
+
+#support-box td:first-of-type {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#support-box td:last-of-type {
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+#support-box tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#support-box tr:nth-child(odd) {
+    color: burlywood;
+}
+
+
+#support-box table a {
+    color: black;
+    text-decoration: none;
+}
+
+#support-box table tr:nth-child(odd) a {
+    color: burlywood;
+}
+
+#support-box table a:hover {
+    color: #25a1e3;
+}
+
+/*
+
+
+11.Show-trip
+
+
+*/
+
+#show-trip-box {
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+
+#trip-info {
+    text-align: center;
+    position: relative;
+    padding: 0 0 20px 0;
+}
+
+#trip-info h3 {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+#trip-info a:first-of-type {
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 5px 5px;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-info a:nth-of-type(2) {
+    float: right;
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-info a:nth-of-type(3) {
+    float: right;
+    top: 35px;
+    right: 0;
+    position: absolute;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-info a:nth-of-type(2):hover {
+    border: 2px dotted black;
+    color: aqua;
+}
+
+#trip-info a:nth-of-type(3):hover {
+    border: 2px dotted black;
+    color: aqua;
+}
+
+#trip-info a:first-of-type:hover {
+    border: 2px dotted black;
+    color: aqua;
+}
+
+#trip-info a:first-of-type {
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+}
+
+
+#trip-plan {
+    width: 100%;
+    height: 140px;
+    padding: 0 0 15px 0;
+    position: relative;
+}
+
+#trip-plan:nth-of-type(odd) {
+    background-color: antiquewhite;
+}
+
+#trip-plan table:nth-of-type(odd) {
+    background-color: whitesmoke;
+    width: 650px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#trip-plan table:nth-of-type(even) {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+#trip-plan a:first-of-type {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    padding: 5px 5px;
+    color: black;
+    text-decoration: none;
+}
+
+#trip-plan a:nth-of-type(2) {
+    bottom: 0;
+    left: 50px;
+    position: absolute;
+    padding: 5px 5px;
+    color: black;
+    text-decoration: none;
+}
+
+#trip-plan a:nth-of-type(3) {
+    bottom: 0;
+    left: 100px;
+    position: absolute;
+    padding: 5px 5px;
+    color: black;
+    text-decoration: none;
+}
+
+#trip-plan a:nth-of-type(2):hover {
+    color: aqua;
+}
+
+#trip-plan a:nth-of-type(3):hover {
+    color: aqua;
+}
+
+#trip-plan a:first-of-type:hover {
+    color: aqua;
+}
+
+
+#trip-text {
+    margin-top: 20px;
+    position: relative;
+}
+
+#trip-text h3 {
+    font-size: 22px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#trip-text h4 {
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#trip-text p {
+    text-align: center;
+    font-size: 18px
+}
+
+#trip-text p:nth-of-type(2) {
+    padding-bottom: 60px;
+}
+
+
+
+#trip-text a {
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#trip-text a:hover {
+    border: 2px dotted black;
+    color: aqua;
+}
+
+/*
+
+
+12.Show-blog
+
+
+*/
+
+#show-blog-box {
+    width: 95%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#sblog-info {
+    margin: auto;
+    width: 100%;
+    position: relative;
+}
+
+
+#sblog-info a:first-of-type {
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#sblog-info h3 {
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+#sblog-info p {
+    font-size: 19px;
+    width: 80%;
+    margin: 10px auto;
+    padding-bottom: 25px;
+}
+
+#sblog-info span {
+    float: left;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    font-size: 18px;
+}
+
+#sblog-info a:nth-of-type(2) {
+    float: right;
+    bottom: 0;
+    right: 55px;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#sblog-info a:nth-of-type(3) {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#sblog-info a:hover {
+    color: aqua;
+}
+
+#show-blog-box table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#show-blog-box table th {
+    height: 50px;
+    font-size: 20px;
+}
+
+#show-blog-box table td {
+    height: 40px;
+    font-size: 18px;
+}
+
+#show-blog-box table tr:nth-of-type(even) {
+    background-color: blanchedalmond;
+}
+
+#show-blog-box table a {
+    text-decoration: none;
+    color: black;
+}
+
+#show-blog-box table a:hover {
+    color: aqua;
+}
+
+/*
+
+
+13.Show-forum
+
+
+*/
+
+#show-forum-box {
+    width: 95%;
+    margin: 20px auto;
+}
+
+#sforum-info {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 10px auto;
+    text-align: center;
+}
+
+#sforum-info a:first-of-type {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#sforum-info h3 {
+    padding-bottom: 15px;
+    font-size: 20px;
+    margin: auto;
+}
+
+#sforum-info p {
+    font-size: 18px;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 25px;
+}
+
+#sforum-info span {
+    position: absolute;
+    font-size: 18px;
+    bottom: 0;
+    right: 0;
+}
+
+#sforum-info a:nth-of-type(2) {
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: black;
+    text-decoration: none;
+}
+
+#sforum-info a:hover {
+    color: blue;
+    font-size: 22px;
+}
+
+#show-forum-box table {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#show-forum-box table th {
+    height: 50px;
+    font-size: 20px;
+}
+
+#show-forum-box table td {
+    height: 40px;
+    font-size: 18px;
+}
+
+#show-forum-box table a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#show-forum-box table a:hover {
+    color: yellowgreen;
+}
+
+/*
+
+
+14.Show-support
+
+
+*/
+
+#show-support-box {
+    width: 95%;
+    margin: 20px auto;
+}
+
+#ssupport-box {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+#ssupport-box a:first-of-type {
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#ssupport-box a:nth-of-type(2) {
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#ssupport-box h2 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+#ssupport-box h3 {
+    text-align: left;
+}
+
+#ssupport-box table {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 35px;
+}
+
+#ssupport-box table th {
+    font-size: 20px;
+    height: 50px;
+}
+
+#ssupport-box td {
+    font-size: 18px;
+    height: 40px;
+}
+
+#ssupport-box td {
+    font-size: 18px;
+    max-height: 250px;
+}
+
+#ssupport-box span:first-of-type {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 18px;
+}
+
+#ssupport-box span:nth-of-type(2) {
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    font-size: 18px;
+}
+
+#ssupport-box a:nth-of-type(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+#ssupport-box a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+
+/*
+
+
+15.Show-pricing
+
+
+*/
+
+#show-tprice-box {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+    text-align: center;
+}
+
+#show-tprice-box a:first-of-type {
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#show-tprice-box a:nth-of-type(2) {
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+#show-tprice-box a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#show-tprice-box h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+#show-tprice-box h4 {
+    text-align: left;
+    padding: 5px;
+}
+
+#show-tprice-box table {
+    width: 50%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 35px;
+    margin-top: 25px;
+    background-color: antiquewhite;
+}
+
+#show-tprice-box table tr:hover {
+    background-color: white;
+}
+
+
+#show-tprice-box table th {
+    font-size: 20px;
+    height: 50px;
+}
+
+#show-tprice-box td {
+    font-size: 18px;
+    height: 40px;
+}
+
+/*
+
+
+16.Show-client
+
+
+*/
+
+/*
+
+
+17.Add-trip
+
+
+*/
+
+#add-trip {
+    width: 95%;
+    margin: 20px auto;
+}
+
+#atrip-form {
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+}
+
+#atrip-form a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#atrip-form a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#atrip-form h2 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#atrip-form form {
+    width: 100%;
+}
+
+#atrip-form label {
+    padding: 5px;
+}
+
+#atrip-form input,
+select {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#atrip-form input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#atrip-form input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#atrip-form input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+
+/*
+
+
+18.Plan-trip
+
+
+*/
+
+#add-trip-plan {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#add-trip-plan a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#add-trip-plan a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#add-trip-plan h2 {
+    font-size: 24px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#add-trip-plan h3 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#add-trip-plan form {
+    width: 100%;
+}
+
+#add-trip-plan label {
+    padding: 5px;
+}
+
+#add-trip-plan input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#add-trip-plan input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#add-trip-plan input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#add-trip-plan input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+
+
+/*
+
+
+19.Edit-trip
+
+
+*/
+
+#edit-trips-model {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#edit-trips-model a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#edit-trips-model a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#edit-trips-model h3 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#edit-trips-model form {
+    width: 100%;
+}
+
+#edit-trips-model label {
+    padding: 5px;
+}
+
+#edit-trips-model input,
+select {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#edit-trips-model input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#edit-trips-model input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#edit-trips-model input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+20.Delete-trip
+
+
+*/
+
+#delete-trip {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-trip a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-trip a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-trip h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-trip form {
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+#delete-trip input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-trip input:nth-of-type(2) {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+}
+
+#delete-trip input:nth-of-type(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#delete-trip input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+
+/*
+
+
+21.Delete-plan
+
+
+*/
+
+#delete-plan-trip {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-plan-trip a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-plan-trip a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-plan-trip h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-plan-trip form {
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+#delete-plan-trip input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-plan-trip input:nth-of-type(2) {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+}
+
+#delete-plan-trip input:nth-of-type(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#delete-plan-trip input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+22.Update-plan
+
+
+*/
+
+#update-trip-plan {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#update-trip-plan a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#update-trip-plan a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#update-trip-plan h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#update-trip-plan h3 {
+    font-size: 22px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#update-trip-plan form {
+    width: 100%;
+}
+
+#update-trip-plan label {
+    padding: 5px;
+}
+
+#update-trip-plan input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#update-trip-plan input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#update-trip-plan input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#update-trip-plan input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+23.Set-plan-status
+
+
+*/
+
+#set-tripplan-status {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#set-tripplan-status a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#set-tripplan-status a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#set-tripplan-status h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#set-tripplan-status h3 {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#set-tripplan-status form {
+    width: 400px;
+    height: 80px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#set-tripplan-status select {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    font-size: 16px;
+}
+
+#set-tripplan-status input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#set-tripplan-status input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+24.Add-trip-info
+
+
+*/
+
+#add-trip-info {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#add-trip-info a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#add-trip-info a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#add-trip-info h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#add-trip-info h3 {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#add-trip-info form {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#add-trip-info label {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#add-trip-info input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#add-trip-info input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#add-trip-info input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+
+/*
+
+
+25.Update-trip-info
+
+
+*/
+
+#edit-trip-info {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#edit-trip-info a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#edit-trip-info a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#edit-trip-info h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#edit-trip-info h3 {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#edit-trip-info form {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#edit-trip-info label {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#edit-trip-info input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#edit-trip-info input:nth-of-type(2) {
+    width: 400px;
+    text-align: center;
+}
+
+#edit-trip-info textarea {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    min-height: 150px;
+    width: 400px;
+    resize: vertical;
+}
+
+#edit-trip-info input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#edit-trip-info input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+26.Edit-client
+
+
+*/
+
+#edit-client {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#edit-client a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#edit-client a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#edit-client h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#edit-client form {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#edit-client label {
+    padding: 10px;
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+#edit-client input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#edit-client input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#edit-client input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+
+/*
+
+
+27.Delete-client
+
+
+*/
+
+#delete-passanger {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-passanger a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-passanger a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-passanger h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-passanger span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-passanger input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-passanger input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-passanger input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-passanger input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+28.Edit-rating
+
+*/
+
+#edit-rating {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#edit-rating a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#edit-rating a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#edit-rating h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#edit-rating h3 {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#edit-rating form {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#edit-rating label {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#edit-rating input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#edit-rating input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#edit-rating input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+29.Add-blog
+
+
+*/
+
+#add-blog-box {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+    font-size: 18px;
+}
+
+#add-blog-box a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#add-blog-box a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#add-blog-box h2 {
+    font-size: 22px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#add-blog-box form {
+    width: 100%;
+}
+
+#add-blog-box label {
+    padding: 5px;
+}
+
+#add-blog-box input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+#add-blog-box textarea {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    min-height: 150px;
+    width: 400px;
+    resize: vertical;
+}
+
+#add-blog-box input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#add-blog-box input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+/*
+
+
+30.Edit-blog
+
+
+*/
+
+#edit-blog-box {
+    width: 95%;
+    margin: 20px auto;
+    position: relative;
+}
+
+#edit-blog-box a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#edit-blog-box a:hover {
+    font-size: 22px;
+    color: aqua;
+}
+
+#edit-blog-box h2 {
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#edit-blog-box form {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+#edit-blog-box label {
+    padding: 10px;
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+#edit-blog-box input {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+}
+
+#edit-blog-box textarea {
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    min-height: 150px;
+    width: 400px;
+    resize: vertical;
+}
+
+#edit-blog-box input:last-of-type {
+    padding: 10px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#edit-blog-box input:last-of-type:hover {
+    background-color: white;
+    color: red;
+}
+
+
+/*
+
+
+31.Delete-blog
+
+
+*/
+
+#delete-blog {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-blog a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-blog a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-blog h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-blog span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-blog input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-blog input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-blog input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-blog input:hover {
+    color: red;
+
+
+
+    background-color: aliceblue;
+}
+
+
+
+/*
+
+
+32.Delete-blog-comment
+
+
+*/
+
+#delete-blogre-box {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-blogre-box a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-blogre-box a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-blogre-box h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-blogre-box input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-blogre-box input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-blogre-box input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-blogre-box input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+
+/*
+
+
+33.Delete-forum
+
+
+*/
+
+#delete-forum {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-forum a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-forum a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-forum h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-forum span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-forum input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-forum input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-forum input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-forum input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+34.Delete-forum-comment
+
+
+*/
+
+#delete-forum-comment {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-forum-comment a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-forum-comment a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-forum-comment h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-forum-comment span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-forum-comment input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-forum-comment input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-forum-comment input:nth-of-type(4) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-forum-comment input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+35.Delete-newsletter
+
+
+*/
+
+#delete-newsletter {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-newsletter a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-newsletter a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-newsletter h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-newsletter span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-newsletter input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-newsletter input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-newsletter input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-newsletter input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+36.Delete-support
+
+
+*/
+
+#delete-support {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#delete-support a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#delete-support a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#delete-support h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#delete-support span {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+}
+
+#delete-support input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#delete-support input:nth-of-type(2) {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#delete-support input:nth-of-type(3) {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#delete-support input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+/*
+
+
+37.Change-support
+
+
+*/
+
+#change-support {
+    width: 95%;
+    margin: 25px auto;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}
+
+#change-support a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black
+}
+
+#change-support a:hover {
+    color: aqua;
+    font-size: 22px;
+}
+
+#change-support h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#change-support select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#change-support input {
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#change-support input:last-of-type {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#change-support input:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+
+
+/*
+
+
+39.Client schedulled trip 
+
+
+*/
+
+#planned-tripsclient-box {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#planned-tripsclient-box span {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+#planned-tripsclient-box span a {
+    font-size: 16px;
+    color: black;
+}
+
+#planned-tripsclient-box table {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#planned-tripsclient-box table:nth-of-type(even) {
+    background-color: bisque;
+}
+
+#planned-tripsclient-box table th {
+    padding: 10px;
+    font-size: 22px;
+}
+
+#planned-tripsclient-box table tr {
+    padding: 10px;
+    font-size: 18px;
+}
+
+#planned-tripsclient-box table a {
+    font-size: 16px;
+    color: black;
+}
+
+#planned-tripsclient-box a:hover {
+    color: red;
+}
+
+/*
+
+
+40.Client overview for specific trip 
+
+
+*/
+
+#passangers {
+    margin: 20px auto 20px;
+    width: 95%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#passangers h2 {
+    font-size: 26px;
+    padding: 5px;
+    margin-bottom: 5px
+}
+
+#passangers #add {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#passangers #add:hover {
+    border: 2px dotted black;
+}
+
+#passangers table {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#passangers th {
+    height: 50px;
+    font-size: 20px
+}
+
+#passangers td {
+    height: 40px;
+    font-size: 17px;
+}
+
+#passangers tr:nth-child(even) {
+    background-color: bisque;
+}
+
+#passangers table a {
+    text-decoration: none;
+    color: black;
+}
+
+#passangers table a:hover {
+    color: goldenrod;
+}
